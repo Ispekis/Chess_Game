@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: ee4e7c72869bb584ea6131d0862fe351
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _tilePrefab: {instanceID: 0}
+  - _tilePrefab2: {instanceID: 0}
+  - cam: {instanceID: 0}
+  - black_pawn: {instanceID: 0}
+  - white_pawn: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
