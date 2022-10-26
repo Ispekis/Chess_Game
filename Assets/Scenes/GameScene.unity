@@ -467,6 +467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redHover: {fileID: -6284032337923043408, guid: fbaa09831cfe627449fcf48362b89732, type: 3}
+  eatMark: {fileID: 1470100226812565775, guid: 868dbae2d5da78142a172b0538d2abb0, type: 3}
   savePiece: {fileID: 0}
 --- !u!4 &1914559423
 Transform:

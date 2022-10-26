@@ -1,8 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
+using MACRO;
+
+namespace MACRO
+{
+    public class param
+    {
+        public static int WIDTH = 0;
+        public static int HEIGHT = 0;
+        public const int WHITE = 0;
+        public const int BLACK = 1;
+    }
+}
 
 public class GridManager : MonoBehaviour
 {
@@ -14,8 +24,6 @@ public class GridManager : MonoBehaviour
     private Tile _null;
 
     [SerializeField] private Piece[] piecePrefab;
-    private int WHITE = 0;
-    private int BLACK = 1;
 
     private Piece[] pawn = new Piece[2];
     private Piece[] king = new Piece[2];
@@ -26,6 +34,8 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
+        param.WIDTH = _width;
+        param.HEIGHT = _height;
         _null = null;
         InitPiece();
         GenerateGrid();
@@ -77,11 +87,11 @@ public class GridManager : MonoBehaviour
             string[] arr = piecePrefab[i].name.Split('_');
             if (arr[0] == "white")
             {
-                FillingPieceValue(arr[1], WHITE, i);
+                FillingPieceValue(arr[1], param.WHITE, i);
             }
             if (arr[0] == "black")
             {
-                FillingPieceValue(arr[1], BLACK, i);
+                FillingPieceValue(arr[1], param.BLACK, i);
             }
         }
     }
@@ -113,19 +123,19 @@ public class GridManager : MonoBehaviour
 
     void GeneratePiece()
     {
-        SettingPiece(0, 1, 8, 1, pawn[WHITE]);
-        SettingMirror(0, 0, 1, 1, rook[WHITE]);
-        SettingMirror(1, 0, 1, 1, knight[WHITE]);
-        SettingMirror(2, 0, 1, 1, bishop[WHITE]);
-        SettingPiece(3, 0, 1, 1, queen[WHITE]);
-        SettingPiece(4, 0, 1, 1, king[WHITE]);
+        SettingPiece(0, 1, 8, 1, pawn[param.WHITE]);
+        SettingMirror(0, 0, 1, 1, rook[param.WHITE]);
+        SettingMirror(1, 0, 1, 1, knight[param.WHITE]);
+        SettingMirror(2, 0, 1, 1, bishop[param.WHITE]);
+        SettingPiece(3, 0, 1, 1, queen[param.WHITE]);
+        SettingPiece(4, 0, 1, 1, king[param.WHITE]);
 
-        SettingPiece(0, 6, 8, 1, pawn[BLACK]);
-        SettingMirror(0, 7, 1, 1, rook[BLACK]);
-        SettingMirror(1, 7, 1, 1, knight[BLACK]);
-        SettingMirror(2, 7, 1, 1, bishop[BLACK]);
-        SettingPiece(3, 7, 1, 1, queen[BLACK]);
-        SettingPiece(4, 7, 1, 1, king[BLACK]);
+        SettingPiece(0, 6, 8, 1, pawn[param.BLACK]);
+        SettingMirror(0, 7, 1, 1, rook[param.BLACK]);
+        SettingMirror(1, 7, 1, 1, knight[param.BLACK]);
+        SettingMirror(2, 7, 1, 1, bishop[param.BLACK]);
+        SettingPiece(3, 7, 1, 1, queen[param.BLACK]);
+        SettingPiece(4, 7, 1, 1, king[param.BLACK]);
     }
 
     void GenerateGrid()
@@ -155,10 +165,10 @@ public class GridManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        pawn[WHITE].posX = 0;
-        pawn[BLACK].posX = 0;
-        pawn[WHITE].posY = 0;
-        pawn[BLACK].posY = 0;
+        pawn[param.WHITE].posX = 0;
+        pawn[param.BLACK].posX = 0;
+        pawn[param.WHITE].posY = 0;
+        pawn[param.BLACK].posY = 0;
         Debug.Log("Destroy");
     }
 }

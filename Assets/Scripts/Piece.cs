@@ -1,17 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using subPattern;
-
-namespace subPattern
-{
-    public class Pattern
-    {
-        public ArrayList Vertical = new ArrayList();
-    }
-}
 
 public class Piece : MonoBehaviour
 {
@@ -33,60 +23,6 @@ public class Piece : MonoBehaviour
     void Update()
     {
 
-    }
-
-    public Pattern getPawnPattern(int posX, int posY, int color)
-    {
-        Pattern pattern = new Pattern();
-        Vector2 pos;
-
-        pos.x = posX;
-        pos.y = posY;
-        switch (color)
-        {
-            case BLACK:
-                for (int i = 0; i < 2; i++)
-                {
-                    pos.y -= 1;
-                    pattern.Vertical.Add(pos);
-                }
-                break;
-            case WHITE:
-                for (int i = 0; i < 2; i++)
-                {
-                    pos.y += 1;
-                    pattern.Vertical.Add(pos);
-                }
-                break;
-        }
-        return pattern;
-    }
-
-    public Pattern getRookPattern(int posX, int posY, int color)
-    {
-        Pattern pattern = new Pattern();
-        Vector2 pos;
-
-        pos.x = posX;
-        pos.y = posY;
-        switch (color)
-        {
-            case BLACK:
-                for (int i = 0; i < 8; i++)
-                {
-                    pos.y -= 1;
-                    pattern.Vertical.Add(pos);
-                }
-                break;
-            case WHITE:
-                for (int i = 0; i < 8; i++)
-                {
-                    pos.y += 1;
-                    pattern.Vertical.Add(pos);
-                }
-                break;
-        }
-        return pattern;
     }
 
     public void setPieceName(string piece_name)

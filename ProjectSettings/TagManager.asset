@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - piece
+  - eat_mark
   layers:
   - Default
   - TransparentFX
